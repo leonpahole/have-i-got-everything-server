@@ -6,6 +6,8 @@ A REST API for Have I got everything app.
 
 Prerequisites: Docker
 
+Copy `.env.example` to `.env` and fill the data out.
+
 Install dependencies, and run the Docker container:
 
 ```bash
