@@ -2,6 +2,7 @@ from django.db import models
 
 class ItemsListTemplate(models.Model):
     name = models.CharField(max_length=200)
+    description = models.CharField(max_length=1000, default="")
 
     user_id = models.CharField(max_length=1000)
 

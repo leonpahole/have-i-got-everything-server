@@ -13,7 +13,7 @@ class ItemsListTemplateSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = ItemsListTemplate
-        fields = ['id', 'name', 'user_id', 'items']
+        fields = ['id', 'name', 'description', 'user_id', 'items']
         read_only_fields = ['id']
 
 class ItemsListItemSerializer(serializers.ModelSerializer):
