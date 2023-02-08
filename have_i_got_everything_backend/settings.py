@@ -25,8 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-jt7@!=kxj6&uu$(rn7^rsrw-5v_63yzgphysmtwhjs=cf-73%!'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -156,9 +155,9 @@ REST_FRAMEWORK = {
     ),
 }
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:5173',
-)
+CORS_ORIGINS = os.environ.get('CORS_ORIGINS')
+
+CORS_ORIGIN_WHITELIST = CORS_ORIGINS.split(",")
 
 JWT_AUDIENCE = os.environ.get('JWT_AUDIENCE')
 JWT_ISSUER = os.environ.get('JWT_ISSUER')
