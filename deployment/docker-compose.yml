@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  server:
+    image: hige-server:latest
+    ports:
+      - 8000:8000
+    env_file: .env
+    volumes:
+      - uwsgi-data:/tmp/uwsgi/
+
+  db:
+    image: postgres:15.1
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  uwsgi-data:
+  postgres-data:

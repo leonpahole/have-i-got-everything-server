@@ -25,3 +25,11 @@ Start the server:
 ```bash
 make start
 ```
+
+## Release
+
+Copy `release.env.example` to `release.env`. Then, run:
+
+```bash
+bash release.sh
+```
