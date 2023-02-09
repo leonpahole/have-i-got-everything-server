@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from hige.models import ItemsListTemplate, ItemsListTemplateItem, ItemsList, ItemsListItem
-from django.core.exceptions import ObjectDoesNotExist, ValidationError
 
 class ItemsListTemplateItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,6 +9,7 @@ class ItemsListTemplateItemSerializer(serializers.ModelSerializer):
 class ItemsListTemplateSerializer(serializers.HyperlinkedModelSerializer):
     user_id = serializers.CharField(read_only=True)
     items = ItemsListTemplateItemSerializer(many=True, read_only=True)
+    description = serializers.CharField(required=False, allow_blank=True)
 
     class Meta:
         model = ItemsListTemplate
